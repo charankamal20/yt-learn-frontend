@@ -2,7 +2,7 @@
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import YouTubePlayer from "@/components/VideoPlayer";
-import { Brain, Hourglass, Link2, Notebook, TvMinimalPlay } from "lucide-react";
+import { Link2, TvMinimalPlay } from "lucide-react";
 import { useEffect, useState } from "react";
 
 import { Button } from "@/components/ui/button";
@@ -27,7 +27,7 @@ const CoursePage = () => {
     setError(undefined);
     try {
       const _url = new URL(url);
-      if (_url.origin !== "https://www.youtube.com" && _url.origin !== "https://youtube.com") {
+      if (_url.origin !== "https://www.youtube.com") {
         console.log("NOT YOUTUBE", url);
         setError((error) => "Please Enter a Youtube URL!");
         return false;
@@ -147,33 +147,28 @@ const CoursePage = () => {
         </DialogContent>
       </Dialog>
       <div className="p-2 gap-2 w-full h-full grid grid-cols-[1fr_300px] grid-rows-[40px_1fr_52px]">
-        <div className="row-start-1 gap-x-1 flex justify-start items-center col-start-1">
-          <Button
-            variant={"ghost"}
-            className="flex h-10 gap-x-1 animate-shimmer items-center justify-center rounded-md  px-4 font-medium text-slate-600 overflow-x-hidden transition-all group"
-          >
-            <Brain className="h-4/5" />
-            <div className="w-0 overflow-x-hidden transition-all group-hover:w-16 duration-300">
-              <span className="text-nowrap">Zen Mode</span>
-            </div>
-          </Button>
-          <Button
-            variant={"ghost"}
-            className="flex h-10 gap-x-1 items-center justify-center rounded-md  px-4 font-medium text-slate-600 transition-all group"
-          >
-            <Hourglass className="h-4/5" />
-            <div className="w-0 overflow-x-hidden transition-all group-hover:w-20 duration-300">
-              <span className="text-nowrap">Set Timer</span>
-            </div>
-          </Button>
-          <button className="flex"></button>
-        </div>
         <div className="bg-white col-start-2 row-start-1 row-span-2 pb-14 h-full">
+          {/* <Tabs defaultValue="resources" className="w-[300px] h-full ">
+            <TabsList className="my-1 grid grid-cols-2 w-full">
+              <TabsTrigger value="resources">Resources</TabsTrigger>
+              <TabsTrigger value="videos">Videos</TabsTrigger>
+            </TabsList>
+            <TabsContent
+              className="ring-1 ring-gray-300 rounded-xl h-full flex justify-center items-center text-gray-400"
+              value="videos"
+            >
+              No new resources yet.
+            </TabsContent>
+            <TabsContent
+              className="ring-1 ring-gray-300 rounded-xl h-full flex justify-center items-center text-gray-400"
+              value="resources"
+            >
+              No new resources yet.
+            </TabsContent>
+          </Tabs> */}
           <Tabs defaultValue="account" className="h-full w-[300px]">
             <TabsList className="grid my-1 grid-cols-2">
-              <TabsTrigger value="account">
-                Resources
-              </TabsTrigger>
+              <TabsTrigger value="account">Resources</TabsTrigger>
               <TabsTrigger value="password">Videos</TabsTrigger>
             </TabsList>
             <TabsContent className="px-0.5 h-full" value="account">

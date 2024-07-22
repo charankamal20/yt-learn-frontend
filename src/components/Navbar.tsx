@@ -1,16 +1,16 @@
-import { MountainIcon } from 'lucide-react';
+import { GraduationCap, MountainIcon } from 'lucide-react';
 import Link from 'next/link';
 import React from 'react'
 
 const Navbar = () => {
   return (
-    <header className="px-4 lg:px-6 w-screen h-14 flex items-center">
+    <header className="fixed z-20 top-0 left-0 backdrop-blur-lg bg-background/10 px-4 lg:px-6 w-full h-14 flex items-center">
       <Link
-        href="#"
+        href="/"
         className="flex items-center justify-center"
         prefetch={false}
       >
-        <MountainIcon className="h-6 w-6" />
+        <GraduationCap />
         <span className="sr-only">Acme Online Courses</span>
       </Link>
       <nav className="ml-auto flex gap-4 sm:gap-6">
